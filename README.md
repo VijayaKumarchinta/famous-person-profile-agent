@@ -74,6 +74,8 @@ Open **[http://localhost:5173](http://localhost:5173)** in your browser.
 
 ## 📖 How to Use
 
+### Step-by-Step Guide
+
 <table>
   <tr>
     <th>Step</th>
@@ -104,9 +106,40 @@ Open **[http://localhost:5173](http://localhost:5173)** in your browser.
 
 > **Note:** If any information is not publicly available, the application clearly marks it rather than fabricating data.
 
+### Input Guide
+
+#### Name Field
+Enter the **full name** of a famous person. Use the most commonly known version of their name for best Wikipedia search results.
+
+| ✅ Good Inputs | ❌ Poor Inputs |
+|---------------|---------------|
+| `Satya Nadella` | `Satya` (too vague) |
+| `Elon Musk` | `CEO` (not a name) |
+| `Marie Curie` | `Microsoft guy` (not a name) |
+| `Cristiano Ronaldo` | `CR7` (nickname) |
+
+#### Context Field
+Context is **required** — it helps the search find the correct Wikipedia article, especially when multiple people share the same name. Be specific about who they are or what they're known for.
+
+| ✅ Good Context | Why It Helps |
+|----------------|-------------|
+| `CEO of Microsoft` | Distinguishes from other people named Satya Nadella |
+| `Tesla CEO` | Finds the right Elon Musk vs. other Elon Musks |
+| `physicist Nobel Prize` | Narrows to the famous scientist |
+| `Indian independence leader` | Finds Mahatma Gandhi vs. other Gandhis |
+
+#### Why Context Matters
+
+Without context, the search might return the wrong person or a disambiguation page. For example:
+
+| Name | Without Context | With Context (`CEO of Microsoft`) |
+|------|----------------|-----------------------------------|
+| `Michael Jordan` | ⚠️ Could return the professor or the basketball player | ✅ Michael Jordan (basketball) — if context is "basketball player" |
+| `Satya Nadella` | ⚠️ May not prioritize the correct page | ✅ Satya Nadella (Microsoft CEO) |
+
 ### Sample Profile
 
-Click **"View Sample Profile"** on the landing page to see a pre-generated profile for **Satya Nadella (CEO of Microsoft)**.
+Click **"View Sample Profile"** on the landing page to see a pre-generated profile for **Satya Nadella (CEO of Microsoft)**, which matches the assignment's example input exactly.
 
 ---
 
