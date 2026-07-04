@@ -29,6 +29,30 @@ import {
 } from "./services/storage";
 import type { ProfileData } from "./types";
 
+// ─── Avatar components for history list ───
+function InitialsAvatar({ name }: { name: string }) {
+  return (
+    <div className="w-10 h-10 rounded-lg bg-indigo-500/15 flex items-center justify-center shrink-0">
+      <span className="text-sm font-bold text-indigo-400">
+        {name.split(" ").map((n) => n[0]).join("").substring(0, 2)}
+      </span>
+    </div>
+  );
+}
+
+function HistoryAvatar({ name, photoUrl }: { name: string; photoUrl: string }) {
+  const [imgError, setImgError] = useState(false);
+  if (imgError) return <InitialsAvatar name={name} />;
+  return (
+    <img
+      src={photoUrl}
+      alt={name}
+      className="w-10 h-10 rounded-lg object-cover shrink-0"
+      onError={() => setImgError(true)}
+    />
+  );
+}
+
 type AppState = "input" | "loading" | "profile" | "error";
 
 export default function App() {
@@ -169,6 +193,7 @@ export default function App() {
   const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
+      e.stopPropagation();
       handleGenerateProfile();
     }
   };
@@ -268,11 +293,13 @@ export default function App() {
                 <div className="relative">
                   <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-slate-500" />
                   <input
+                    id="person-name"
                     type="text"
                     value={name}
                     onChange={(e) => handleNameChange(e.target.value)}
                     onKeyDown={handleInputKeyDown}
                     placeholder="e.g. Satya Nadella, Elon Musk, Marie Curie"
+                    aria-label="Person's name"
                     className={`w-full pl-11 pr-4 py-3 bg-slate-800/50 border rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 transition-all text-sm ${
                       nameError
                         ? "border-red-500/50 focus:ring-red-500/40 focus:border-red-500/40"
@@ -299,11 +326,13 @@ export default function App() {
                 <div className="relative">
                   <FileText className="absolute left-3.5 top-3 w-4.5 h-4.5 text-slate-500" />
                   <input
+                    id="person-context"
                     type="text"
                     value={context}
                     onChange={(e) => handleContextChange(e.target.value)}
                     onKeyDown={handleInputKeyDown}
                     placeholder="e.g. CEO of Microsoft, physicist, tennis player"
+                    aria-label="Context to help identify the person"
                     className={`w-full pl-11 pr-4 py-3 bg-slate-800/50 border rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 transition-all text-sm ${
                       contextError
                         ? "border-red-500/50 focus:ring-red-500/40 focus:border-red-500/40"
@@ -412,24 +441,9 @@ export default function App() {
                     >
                       {/* Photo or initials */}
                       {item.profile.photoUrl ? (
-                        <img
-                          src={item.profile.photoUrl}
-                          alt={item.name}
-                          className="w-10 h-10 rounded-lg object-cover shrink-0"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).style.display = "none";
-                          }}
-                        />
+                        <HistoryAvatar name={item.name} photoUrl={item.profile.photoUrl} />
                       ) : (
-                        <div className="w-10 h-10 rounded-lg bg-indigo-500/15 flex items-center justify-center shrink-0">
-                          <span className="text-sm font-bold text-indigo-400">
-                            {item.name
-                              .split(" ")
-                              .map((n) => n[0])
-                              .join("")
-                              .substring(0, 2)}
-                          </span>
-                        </div>
+                        <InitialsAvatar name={item.name} />
                       )}
 
                       {/* Info — clickable to load */}

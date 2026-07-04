@@ -14,7 +14,15 @@ export function extractProfileFromWikipedia(
   const { extract, fullText, infobox, pageUrl, thumbnail, description } = wikiData;
   
   // Extract all profile sections with error handling
-  const basicDetails = safeExtract(() => extractBasicDetails(name, context, infobox, fullText, description));
+  const defaultDetails: ProfileData["basicDetails"] = {
+    fullName: NOT_AVAILABLE,
+    nationality: NOT_AVAILABLE,
+    currentRole: NOT_AVAILABLE,
+    industry: NOT_AVAILABLE,
+    currentCity: NOT_AVAILABLE,
+    currentCountry: NOT_AVAILABLE,
+  };
+  const basicDetails = safeExtract(() => extractBasicDetails(name, context, infobox, fullText, description), defaultDetails);
   const careerTimeline = safeExtract(() => extractCareerTimeline(fullText, infobox), []);
   const education = safeExtract(() => extractEducation(fullText, infobox), []);
   const interests = safeExtract(() => extractInterests(fullText), []);
@@ -56,14 +64,14 @@ export function extractProfileFromWikipedia(
 }
 
 /**
- * Safe wrapper for extraction functions - returns default on error
+ * Safe wrapper for extraction functions - requires explicit default value
  */
-function safeExtract<T>(fn: () => T, defaultValue?: T): T {
+function safeExtract<T>(fn: () => T, defaultValue: T): T {
   try {
     return fn();
   } catch (error) {
     console.error("Extraction error:", error);
-    return defaultValue as T;
+    return defaultValue;
   }
 }
 
@@ -109,11 +117,8 @@ function extractBasicDetails(
     }
   }
   
-  // Current role - from context (required) or other sources
-  let currentRole = context;
-  if (!currentRole || currentRole.length === 0) {
-    currentRole = infobox.occupation || infobox.title || infobox.known_for || description || "";
-  }
+  // Current role - prefer extracted data over user context
+  let currentRole = infobox.occupation || infobox.title || infobox.known_for || description || "";
   if (!currentRole) {
     const rolePatterns = [
       /(?:is|serves as|currently)\s+(?:the\s+)?(?:a\s+)?([A-Z][^.]*?(?:CEO|Chairman|President|Director|Founder|Executive|Manager|Officer|Minister|Governor|Senator|Actor|Actress|Singer|Musician|Athlete|Player|Author|Writer|Scientist|Professor|Doctor|Engineer)[^.]*)/i,
@@ -126,6 +131,10 @@ function extractBasicDetails(
         break;
       }
     }
+  }
+  // Use user context as final fallback if nothing was extracted
+  if (!currentRole && context) {
+    currentRole = context;
   }
   
   // Industry detection

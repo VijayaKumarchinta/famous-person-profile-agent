@@ -10,7 +10,7 @@ Built for the AI-Powered Profile Builder Internship Assignment.
 
 | Landing Page & Input Form | Generated Profile View |
 |:---:|:---:|
-| ![Landing Page](./public/screenshots/landing-page.png) | ![Generated Profile](./public/screenshots/generated-profile.png) |
+| ![Landing Page](./public/screenshots/landing-page.png) | ![Generated Profile](./public/screenshots/Report_sample.png) |
 
 ---
 

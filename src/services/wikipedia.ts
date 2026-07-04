@@ -76,6 +76,18 @@ async function searchWikipedia(query: string, context: string): Promise<string |
     const exactMatch = titles.find(t => t.toLowerCase() === nameLower);
     if (exactMatch) return exactMatch;
     
+    // Check if the first result contains the queried name
+    // If it doesn't (e.g. context caused wrong result like "Elon Musk's Tesla Roadster"),
+    // retry without context to get the actual person's page
+    const firstTitle = titles[0].toLowerCase();
+    const queryWords = nameLower.split(/\s+/).filter(w => w.length > 2);
+    const nameInTitle = queryWords.every(w => firstTitle.includes(w));
+    
+    if (!nameInTitle && context) {
+      // Context skewed the search - retry with just the name
+      return searchWikipedia(query, "");
+    }
+    
     // Otherwise return first result
     return titles[0];
   } catch (error) {
@@ -134,6 +146,7 @@ async function getWikipediaFullText(title: string): Promise<string> {
     exsectionformat: "plain",
     format: "json",
     origin: "*",
+    redirects: "1",
   });
 
   try {
@@ -177,6 +190,7 @@ async function getWikipediaInfobox(title: string): Promise<Record<string, string
     titles: title,
     format: "json",
     origin: "*",
+    redirects: "1",
   });
 
   try {
