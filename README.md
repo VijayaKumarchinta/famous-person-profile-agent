@@ -228,22 +228,6 @@ Click **"View Sample Profile"** on the landing page to see a pre-generated profi
 | **API Keys** | Not required — uses public Wikipedia APIs only |
 
 ---
-
-## ✅ Assignment Compliance
-
-| Requirement | Status | Implementation |
-|-------------|:------:|----------------|
-| Accept name as input | ✅ | Required text field with validation |
-| Accept context as input | ✅ | Required text field with validation |
-| Gather public information | ✅ | Wikipedia API (OpenSearch + REST + Action) |
-| Generate structured profile | ✅ | All 13 required sections extracted |
-| Mark unavailable info clearly | ✅ | "Information not publicly available" |
-| No paid AI tools or APIs | ✅ | Pattern matching and heuristics only |
-| PDF downloadable report | ✅ | Single A4 page via jsPDF |
-| GitHub repository | ✅ | Public repository |
-| README with setup steps + screenshots | ✅ | Complete documentation |
-| Sample profile included | ✅ | Satya Nadella pre-loaded |
-
 ---
 
 ## 📝 License
