@@ -1,23 +1,52 @@
-# AI-Powered Profile Builder
+<p align="center">
+  <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white" alt="React 19" />
+  <img src="https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white" alt="TypeScript 5.9" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS 4" />
+  <img src="https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white" alt="Vite 7" />
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
+</p>
 
-A web application that creates structured profiles of famous people using publicly available Wikipedia data. **No API keys or paid services required.**
+<h1 align="center">AI-Powered Profile Builder</h1>
 
-Built for the AI-Powered Profile Builder Internship Assignment.
+<p align="center">
+  A web application that creates structured profiles of famous people using publicly available Wikipedia data.<br />
+  <strong>No API keys or paid services required.</strong>
+</p>
+
+<p align="center">
+  Built for the <strong>AI-Powered Profile Builder Internship Assignment</strong>
+</p>
+
+<br />
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
-| Landing Page & Input Form | Generated Profile View |
-|:---:|:---:|
-| ![Landing Page](./public/screenshots/landing-page.png) | ![Generated Profile](./public/screenshots/Report_sample.png) |
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <strong>Landing Page &amp; Input Form</strong><br />
+      <img src="./public/screenshots/landing-page.png" alt="Landing Page" width="100%" />
+      <br />
+      <em>Clean interface to enter a person's name and context</em>
+    </td>
+    <td align="center" width="50%">
+      <strong>Generated Profile Report</strong><br />
+      <img src="./public/screenshots/Report_sample.png" alt="Profile Report" width="100%" />
+      <br />
+      <em>Comprehensive profile with all extracted information</em>
+    </td>
+  </tr>
+</table>
 
 ---
 
-## Quick Start
+## 🚀 Quick Start
 
 ### Prerequisites
-- **Node.js 18+** and **npm 9+** ([nodejs.org](https://nodejs.org/))
+
+- **Node.js 18+** and **npm 9+** — [Download here](https://nodejs.org/)
 
 ### Setup
 
@@ -29,104 +58,167 @@ cd famous-person-profile-agent
 # Install dependencies
 npm install
 
-# Start development server
+# Start the development server
 npm run dev
 ```
 
-Open **http://localhost:5173** in your browser.
+Open **[http://localhost:5173](http://localhost:5173)** in your browser.
 
----
-
-## How to Use
-
-1. **Enter Person's Name** — e.g. `Satya Nadella`
-2. **Enter Context** — e.g. `CEO of Microsoft` (helps find the right person)
-3. **Click "Generate Profile"** — or press `Enter` / `Ctrl+Enter`
-4. **View & Export** — Download PDF report or export JSON
-
-> If information is not publicly available, it is clearly marked instead of guessed.
-
----
-
-## Generated Profile Includes
-
-| Section | Description |
+| Command | Description |
 |---------|-------------|
-| Executive Summary | 2-3 sentence overview |
-| Full Name | From Wikipedia infobox/article |
-| Nationality | Pattern matching from text |
-| Current Role | Extracted from Wikipedia + context |
-| Industry | Keyword-based detection |
-| Current City / Country | From infobox residence |
-| Biography | Wikipedia article summary |
-| Career Timeline | Year-based event extraction |
-| Education | Infobox + text pattern matching |
-| Interests | Keyword-based detection |
-| Net Worth | Financial pattern extraction |
-| Recent News | Recent year mentions in article |
-| References | Source links (Wikipedia, etc.) |
+| `npm run dev` | Start development server with hot reload |
+| `npm run build` | Create production build in `dist/` |
+| `npm run preview` | Preview the production build |
 
 ---
 
-## Sample Profile
+## 📖 How to Use
 
-Enter **Satya Nadella** with context **CEO of Microsoft**, or click **"View Sample Profile"** on the landing page to see a pre-generated example.
+<table>
+  <tr>
+    <th>Step</th>
+    <th>Action</th>
+    <th>Example</th>
+  </tr>
+  <tr>
+    <td align="center">1</td>
+    <td>Enter the person's full name</td>
+    <td><code>Satya Nadella</code></td>
+  </tr>
+  <tr>
+    <td align="center">2</td>
+    <td>Provide context for accuracy</td>
+    <td><code>CEO of Microsoft</code></td>
+  </tr>
+  <tr>
+    <td align="center">3</td>
+    <td>Click <strong>Generate Profile</strong> or press <kbd>Enter</kbd> / <kbd>Ctrl</kbd>+<kbd>Enter</kbd></td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td align="center">4</td>
+    <td>Export results — PDF report or JSON</td>
+    <td>—</td>
+  </tr>
+</table>
+
+> **Note:** If any information is not publicly available, the application clearly marks it rather than fabricating data.
+
+### Sample Profile
+
+Click **"View Sample Profile"** on the landing page to see a pre-generated profile for **Satya Nadella (CEO of Microsoft)**.
 
 ---
 
-## Architecture
+## 📋 Generated Profile Sections
+
+| # | Section | Description |
+|:---:|---------|-------------|
+| 1 | **Executive Summary** | 2-3 sentence overview from Wikipedia |
+| 2 | **Full Name** | Extracted from infobox or article |
+| 3 | **Nationality** | Pattern matching from text |
+| 4 | **Current Role** | Extracted from infobox / Wikipedia |
+| 5 | **Industry** | Keyword-based detection |
+| 6 | **Current City / Country** | From infobox residence data |
+| 7 | **Biography** | Wikipedia article summary |
+| 8 | **Career Timeline** | Year-based event extraction |
+| 9 | **Education** | Infobox + text pattern matching |
+| 10 | **Interests** | Keyword and hobby detection |
+| 11 | **Net Worth** | Financial pattern extraction |
+| 12 | **Recent News** | Recent year mentions in article |
+| 13 | **References** | Source links (Wikipedia, etc.) |
+
+---
+
+## 🏗️ Architecture
 
 ```
-User Input (Name + Context)
-        ↓
-Wikipedia API (OpenSearch → REST Summary → Full Text → Infobox)
-        ↓
-Profile Extractor (Pattern matching + heuristics)
-        ↓
-Profile Display + PDF/JSON Export
+┌──────────────────────────────────────────────────────────────┐
+│                 User Input (Name + Context)                   │
+└───────────────────────┬──────────────────────────────────────┘
+                        │
+                        ▼
+┌──────────────────────────────────────────────────────────────┐
+│                    Wikipedia Service                          │
+│                                                              │
+│  ┌──────────────┐   ┌──────────────┐   ┌────────────────┐   │
+│  │  OpenSearch  │ → │ REST Summary │ → │  Action API    │   │
+│  │  (Find Page) │   │  (Extract)   │   │  (Full Text)   │   │
+│  └──────────────┘   └──────────────┘   └────────────────┘   │
+│                                        ┌────────────────┐   │
+│                                        │  Infobox Parser│   │
+│                                        └────────────────┘   │
+└───────────────────────┬──────────────────────────────────────┘
+                        │
+                        ▼
+┌──────────────────────────────────────────────────────────────┐
+│                   Profile Extractor                           │
+│                                                              │
+│   Pattern Matching & Heuristics to extract structured data:  │
+│   • Career timeline    • Education        • Net worth        │
+│   • Interests          • Recent news      • Basic details    │
+│   • Biography          • References                           │
+└───────────────────────┬──────────────────────────────────────┘
+                        │
+                        ▼
+┌──────────────────────────────────────────────────────────────┐
+│              Profile Display + PDF/JSON Export                │
+│              (React UI + jsPDF + JSON download)              │
+└──────────────────────────────────────────────────────────────┘
 ```
 
-## Tech Stack
+---
 
-| Tool | Purpose |
-|------|---------|
-| React 19 + TypeScript | UI framework |
-| Tailwind CSS 4 | Styling |
-| Vite 7 | Build tool |
-| jsPDF | PDF generation |
-| Lucide React | Icons |
-| Wikipedia API | Public data source |
+## 🛠️ Tech Stack
 
-All tools are **free and open-source**.
+| Category | Technology | Purpose |
+|----------|-----------|---------|
+| **Frontend** | React 19 + TypeScript | UI framework and application logic |
+| **Styling** | Tailwind CSS 4 | Modern, responsive design |
+| **Build Tool** | Vite 7 | Fast development and optimized builds |
+| **Icons** | Lucide React | Consistent icon library |
+| **PDF Generation** | jsPDF | Client-side PDF creation (single A4 page) |
+| **Data Source** | Wikipedia API | Public information — no authentication required |
+
+> All tools are **free and open-source**. No paid APIs or AI services are used.
 
 ---
 
-## Assignment Compliance
+## 🔒 Data & Privacy
 
-| Requirement | Status |
-|-------------|--------|
-| Accept name as input | ✅ |
-| Accept context as input | ✅ |
-| Gather public information (Wikipedia) | ✅ |
-| Generate structured profile with all fields | ✅ |
-| Mark unavailable info | ✅ |
-| No paid AI tools/APIs | ✅ |
-| PDF downloadable report | ✅ |
-| GitHub repository | ✅ |
-| README with setup steps + screenshots | ✅ |
-| Sample profile included | ✅ |
+| Feature | Detail |
+|---------|--------|
+| **Storage** | Browser localStorage (no server) |
+| **Data Retention** | Up to 10 profiles in history |
+| **Exports** | PDF and JSON — saved to your Downloads folder |
+| **Tracking** | None — no analytics, no data collection |
+| **API Keys** | Not required — uses public Wikipedia APIs only |
 
 ---
 
-## Data & Privacy
+## ✅ Assignment Compliance
 
-- All data stays in your browser (`localStorage`)
-- No data sent to any server
-- Up to 10 profiles saved in history
-- Profiles, PDFs, and JSON exports are under your control
+| Requirement | Status | Implementation |
+|-------------|:------:|----------------|
+| Accept name as input | ✅ | Required text field with validation |
+| Accept context as input | ✅ | Required text field with validation |
+| Gather public information | ✅ | Wikipedia API (OpenSearch + REST + Action) |
+| Generate structured profile | ✅ | All 13 required sections extracted |
+| Mark unavailable info clearly | ✅ | "Information not publicly available" |
+| No paid AI tools or APIs | ✅ | Pattern matching and heuristics only |
+| PDF downloadable report | ✅ | Single A4 page via jsPDF |
+| GitHub repository | ✅ | Public repository |
+| README with setup steps + screenshots | ✅ | Complete documentation |
+| Sample profile included | ✅ | Satya Nadella pre-loaded |
 
 ---
 
-## License
+## 📝 License
 
-MIT
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+
+---
+
+<p align="center">
+  Built for the <strong>AI-Powered Profile Builder Internship Assignment</strong>
+</p>
