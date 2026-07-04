@@ -228,7 +228,6 @@ Click **"View Sample Profile"** on the landing page to see a pre-generated profi
 | **API Keys** | Not required — uses public Wikipedia APIs only |
 
 ---
----
 
 ## 📝 License
 
