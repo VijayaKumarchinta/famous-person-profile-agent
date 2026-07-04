@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out forwards;
+}
+
+.loading-dot {
+  animation: pulse-dot 1.4s ease-in-out infinite;
+}
+
+.loading-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.shimmer-bg {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* Markdown content styling */
+.profile-content h1,
+.profile-content h2,
+.profile-content h3 {
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.profile-content h1 { font-size: 1.5rem; }
+.profile-content h2 { font-size: 1.25rem; }
+.profile-content h3 { font-size: 1.1rem; }
+
+.profile-content p {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+.profile-content ul, .profile-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.profile-content li {
+  margin-bottom: 0.35rem;
+  line-height: 1.6;
+}
+
+.profile-content ul li {
+  list-style-type: disc;
+}
+
+.profile-content ol li {
+  list-style-type: decimal;
+}
+
+.profile-content a {
+  color: #818cf8;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.profile-content a:hover {
+  color: #a5b4fc;
+}
+
+.profile-content strong {
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.profile-content blockquote {
+  border-left: 3px solid #4f46e5;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.profile-content hr {
+  border: none;
+  border-top: 1px solid #334155;
+  margin: 1.5rem 0;
+}
+
+.profile-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.profile-content th,
+.profile-content td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #334155;
+  text-align: left;
+}
+
+.profile-content th {
+  background: rgba(30, 41, 59, 0.5);
+  font-weight: 600;
+}
