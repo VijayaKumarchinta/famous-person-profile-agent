@@ -120,7 +120,6 @@ export default function App() {
       const trimmedContext = context.trim();
       const envKey = import.meta.env.VITE_GEMINI_API_KEY;
       const trimmedKey = envKey ? envKey.trim() : "";
-      
       let generatedProfile: ProfileData;
 
       if (trimmedKey) {
@@ -310,11 +309,10 @@ export default function App() {
                     onKeyDown={handleInputKeyDown}
                     placeholder="e.g. Satya Nadella, Elon Musk, Marie Curie"
                     aria-label="Person's name"
-                    className={`w-full pl-11 pr-4 py-3 bg-slate-800/50 border rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 transition-all text-sm ${
-                      nameError
-                        ? "border-red-500/50 focus:ring-red-500/40 focus:border-red-500/40"
-                        : "border-slate-700/50 focus:ring-indigo-500/40 focus:border-indigo-500/40"
-                    }`}
+                    className={`w-full pl-11 pr-4 py-3 bg-slate-800/50 border rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 transition-all text-sm ${nameError
+                      ? "border-red-500/50 focus:ring-red-500/40 focus:border-red-500/40"
+                      : "border-slate-700/50 focus:ring-indigo-500/40 focus:border-indigo-500/40"
+                      }`}
                   />
                 </div>
                 {nameError && (
@@ -343,11 +341,10 @@ export default function App() {
                     onKeyDown={handleInputKeyDown}
                     placeholder="e.g. CEO of Microsoft, physicist, tennis player"
                     aria-label="Context to help identify the person"
-                    className={`w-full pl-11 pr-4 py-3 bg-slate-800/50 border rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 transition-all text-sm ${
-                      contextError
-                        ? "border-red-500/50 focus:ring-red-500/40 focus:border-red-500/40"
-                        : "border-slate-700/50 focus:ring-indigo-500/40 focus:border-indigo-500/40"
-                    }`}
+                    className={`w-full pl-11 pr-4 py-3 bg-slate-800/50 border rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 transition-all text-sm ${contextError
+                      ? "border-red-500/50 focus:ring-red-500/40 focus:border-red-500/40"
+                      : "border-slate-700/50 focus:ring-indigo-500/40 focus:border-indigo-500/40"
+                      }`}
                   />
                 </div>
                 {contextError && (
@@ -436,9 +433,8 @@ export default function App() {
                 <Clock className="w-4 h-4" />
                 Previously Generated ({history.length})
                 <ChevronDown
-                  className={`w-4 h-4 transition-transform ${
-                    showHistory ? "rotate-180" : ""
-                  }`}
+                  className={`w-4 h-4 transition-transform ${showHistory ? "rotate-180" : ""
+                    }`}
                 />
               </button>
 
@@ -505,9 +501,8 @@ export default function App() {
               <Zap className="w-4 h-4" />
               How It Works
               <ChevronDown
-                className={`w-4 h-4 transition-transform ${
-                  showHowItWorks ? "rotate-180" : ""
-                }`}
+                className={`w-4 h-4 transition-transform ${showHowItWorks ? "rotate-180" : ""
+                  }`}
               />
             </button>
 
