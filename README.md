@@ -9,8 +9,8 @@
 <h1 align="center">AI-Powered Profile Builder</h1>
 
 <p align="center">
-  A web application that creates structured profiles of famous people using publicly available Wikipedia data.<br />
-  <strong>No API keys or paid services required.</strong>
+  A web application that creates structured profiles of famous people using publicly available data.<br />
+  <strong>Works via Wikipedia extraction by default, or seamlessly upgrades to a full AI Agent (Whole Internet Search) via a free Gemini API Key.</strong>
 </p>
 
 <p align="center">
@@ -18,27 +18,6 @@
 </p>
 
 <br />
-
----
-
-## 📸 Screenshots
-
-<table>
-  <tr>
-    <td align="center" width="50%">
-      <strong>Landing Page &amp; Input Form</strong><br />
-      <img src="./public/screenshots/landing-page.png" alt="Landing Page" width="100%" />
-      <br />
-      <em>Clean interface to enter a person's name and context</em>
-    </td>
-    <td align="center" width="50%">
-      <strong>Generated Profile Report</strong><br />
-      <img src="./public/screenshots/Report_sample.png" alt="Profile Report" width="100%" />
-      <br />
-      <em>Comprehensive profile with all extracted information</em>
-    </td>
-  </tr>
-</table>
 
 ---
 
@@ -94,17 +73,23 @@ Open **[http://localhost:5173](http://localhost:5173)** in your browser.
   </tr>
   <tr>
     <td align="center">3</td>
+    <td>(Optional) Enter Gemini API Key</td>
+    <td><code>AIza...</code> (Unlocks "Whole Internet" AI search)</td>
+  </tr>
+  <tr>
+    <td align="center">4</td>
     <td>Click <strong>Generate Profile</strong> or press <kbd>Enter</kbd> / <kbd>Ctrl</kbd>+<kbd>Enter</kbd></td>
     <td>—</td>
   </tr>
   <tr>
-    <td align="center">4</td>
+    <td align="center">5</td>
     <td>Export results — PDF report or JSON</td>
     <td>—</td>
   </tr>
 </table>
 
 > **Note:** If any information is not publicly available, the application clearly marks it rather than fabricating data.
+> **AI Agent Mode:** By providing a free Gemini API Key, the app seamlessly upgrades from Wikipedia heuristics to a full AI Agent using Google Search Grounding to scour the whole internet for information.
 
 ### Input Guide
 

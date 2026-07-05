@@ -19,6 +19,7 @@ import ProfileDisplay from "./components/ProfileDisplay";
 import LoadingState from "./components/LoadingState";
 import { fetchWikipediaData } from "./services/wikipedia";
 import { extractProfileFromWikipedia } from "./services/profileExtractor";
+import { generateProfileWithGemini } from "./services/aiAgent";
 import { sampleProfile } from "./data/sampleProfile";
 import {
   loadProfiles,
@@ -59,6 +60,7 @@ export default function App() {
   const [state, setState] = useState<AppState>("input");
   const [name, setName] = useState("");
   const [context, setContext] = useState("");
+  const [apiKey, setApiKey] = useState("");
   const [profile, setProfile] = useState<ProfileData | null>(null);
   const [error, setError] = useState("");
   const [showHowItWorks, setShowHowItWorks] = useState(false);
@@ -117,22 +119,30 @@ export default function App() {
     try {
       const trimmedName = name.trim();
       const trimmedContext = context.trim();
+      const trimmedKey = apiKey.trim();
+      
+      let generatedProfile: ProfileData;
 
-      // Step 1: Fetch Wikipedia data
-      const wikiData = await fetchWikipediaData(trimmedName, trimmedContext);
+      if (trimmedKey) {
+        // Step 1: Use Gemini with Google Search to generate profile
+        generatedProfile = await generateProfileWithGemini(trimmedName, trimmedContext, trimmedKey);
+      } else {
+        // Step 1: Fetch Wikipedia data as fallback
+        const wikiData = await fetchWikipediaData(trimmedName, trimmedContext);
 
-      if (!wikiData) {
-        throw new Error(
-          `Could not find information for "${trimmedName}" on Wikipedia. Please try:\n• Checking the spelling\n• Using the person's full name\n• Adding more specific context`
+        if (!wikiData) {
+          throw new Error(
+            `Could not find information for "${trimmedName}" on Wikipedia. Please try:\n• Checking the spelling\n• Using the person's full name\n• Adding more specific context\n\nOr provide a Gemini API Key to search the whole internet.`
+          );
+        }
+
+        // Step 2: Extract structured profile using fallback heuristics
+        generatedProfile = extractProfileFromWikipedia(
+          trimmedName,
+          trimmedContext,
+          wikiData
         );
       }
-
-      // Step 2: Extract structured profile
-      const generatedProfile = extractProfileFromWikipedia(
-        trimmedName,
-        trimmedContext,
-        wikiData
-      );
 
       // Step 3: Save to localStorage
       saveProfile(trimmedName, trimmedContext, generatedProfile);
@@ -350,6 +360,34 @@ export default function App() {
                   <Info className="w-3 h-3 mt-0.5 shrink-0" />
                   Context improves search accuracy (e.g., "CEO of Microsoft"
                   helps distinguish from others with the same name)
+                </p>
+              </div>
+
+              {/* API Key Input */}
+              <div>
+                <label
+                  htmlFor="apiKey"
+                  className="block text-sm font-medium text-slate-300 mb-1.5"
+                >
+                  Gemini API Key (Optional)
+                </label>
+                <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                    <Zap className="h-4.5 w-4.5 text-slate-500 group-focus-within:text-purple-400 transition-colors" />
+                  </div>
+                  <input
+                    type="password"
+                    id="apiKey"
+                    value={apiKey}
+                    onChange={(e) => setApiKey(e.target.value)}
+                    onKeyDown={handleInputKeyDown}
+                    placeholder="AI studio key to search whole internet"
+                    className="block w-full pl-10 pr-4 py-3 bg-slate-900/50 border border-slate-700/50 rounded-xl text-slate-200 placeholder-slate-500 focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all shadow-inner"
+                  />
+                </div>
+                <p className="mt-1.5 text-xs text-slate-500 flex items-start gap-1">
+                  <Info className="w-3 h-3 mt-0.5 shrink-0" />
+                  If provided, the app acts as a true AI Agent using Gemini to search the whole internet instead of falling back to Wikipedia heuristics.
                 </p>
               </div>
 
