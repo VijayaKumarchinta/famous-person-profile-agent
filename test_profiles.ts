@@ -1,17 +1,7 @@
-import { generateProfileWithGemini } from "./src/services/aiAgent";
+import { fetchWikipediaData } from "./src/services/wikipedia";
+import { extractProfileFromWikipedia } from "./src/services/profileExtractor";
 import * as fs from "fs";
 import * as path from "path";
-import * as dotenv from "dotenv";
-
-dotenv.config();
-
-const API_KEY = process.env.VITE_GEMINI_API_KEY;
-
-if (!API_KEY) {
-  console.error("❌ Error: VITE_GEMINI_API_KEY is not set in the .env file.");
-  console.error("Please add it to run the tests.");
-  process.exit(1);
-}
 
 const PUBLIC_FIGURES = [
   "Elon Musk",
@@ -28,9 +18,9 @@ const PUBLIC_FIGURES = [
 
 async function runTests() {
   console.log("🚀 Starting Profile Extraction Tests...");
-  console.log("Using Deep Internet Search (Gemini + Google Search Grounding)\n");
+  console.log("Using Free Wikipedia Extractor\n");
 
-  const outputDir = path.join(__dirname, "test_outputs");
+  const outputDir = path.join(process.cwd(), "test_outputs");
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir);
   }
@@ -38,7 +28,9 @@ async function runTests() {
   for (const name of PUBLIC_FIGURES) {
     console.log(`\n⏳ Extracting profile for: ${name}...`);
     try {
-      const profile = await generateProfileWithGemini(name, "", API_KEY!);
+      const wikiData = await fetchWikipediaData(name, "");
+      if (!wikiData) throw new Error("No Wikipedia data found");
+      const profile = extractProfileFromWikipedia(name, "", wikiData);
       
       const filePath = path.join(outputDir, `${name.replace(/\s+/g, "_")}.json`);
       fs.writeFileSync(filePath, JSON.stringify(profile, null, 2));

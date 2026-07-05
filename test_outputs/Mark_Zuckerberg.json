@@ -1,0 +1,50 @@
+{
+  "name": "Mark Zuckerberg",
+  "executiveSummary": "Mark Elliot Zuckerberg (born May 14, 1984) is an American businessman and programmer who co-founded the social media service Facebook and its parent company Meta Platforms. He is its chairman, chief executive officer (CEO), and controlling shareholder.",
+  "basicDetails": {
+    "fullName": "Mark Elliot Zuckerberg",
+    "nationality": "Information not publicly available",
+    "currentRole": "Businessman · programmer",
+    "industry": "Media",
+    "currentCity": "Information not publicly available",
+    "currentCountry": "U.S."
+  },
+  "biography": "Mark Elliot Zuckerberg (born May 14, 1984) is an American businessman and programmer who co-founded the social media service Facebook and its parent company Meta Platforms. He is its chairman, chief executive officer (CEO), and controlling shareholder.\n\nZuckerberg briefly attended Harvard College, and launched Facebook there in February 2004 with his roommates Eduardo Saverin, Andrew McCollum, Dustin Moskovitz and Chris Hughes. Zuckerberg took the company public in May 2012 with majority shares. He became the world's youngest self-made billionaire in 2008 at age 23 and has consistently ranked among the world's wealthiest people. According to Forbes, Zuckerberg's estimated net worth stood at US$220 billion as of December 2025.\n\nHe has used his funds to organize multiple large donations, including the establishment of the Chan Zuckerberg Initiative. A film based on Zuckerberg's early career, legal troubles and initial success with Facebook, The Social Network, was released in 2010. His prominence and fast rise in the technology industry has prompted political and legal attention. He has been the subject of multiple lawsuits regarding the creation and ownership of the website as well as issues such as user privacy.",
+  "careerTimeline": [
+    {
+      "year": "2004–present",
+      "role": "Businessman · programmer",
+      "organization": "Various"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Attended / Graduated",
+      "institution": "Harvard University (dropped out)"
+    }
+  ],
+  "interests": [
+    "Information not publicly available"
+  ],
+  "netWorth": "$220 billion",
+  "recentNews": [
+    {
+      "title": "Public Event or Mention",
+      "description": "In 2026, Zuckerberg was appointed to the President's Council of Advisors on Science and Technology (PCAST) by President Donald Trump",
+      "date": "2026"
+    },
+    {
+      "title": "Public Event or Mention",
+      "description": "In 2022, Zuckerberg took up training in both mixed martial arts (MMA) and Brazilian jiu-jitsu (BJJ), and has been open about his love for the two sports",
+      "date": "2022"
+    }
+  ],
+  "references": [
+    {
+      "title": "Wikipedia - Mark Zuckerberg",
+      "url": "https://en.wikipedia.org/wiki/Mark%20Zuckerberg"
+    }
+  ],
+  "photoUrl": "https://wikipedia.org/wiki/Special:Redirect/file/F20250904AH-2824_(54778373111)_(3x4_cropped_on_Zuckerberg_following_the_rule_of_thirds).jpg",
+  "generatedAt": "2026-07-05T02:59:23.453Z"
+}
