@@ -166,7 +166,7 @@ export default function ProfileDisplay({
       {toast && <Toast message={toast.message} type={toast.type} onDone={() => setToast(null)} />}
 
       {/* Header / Hero Card */}
-      <div className="animate-fade-in relative bg-gradient-to-br from-indigo-900/40 via-slate-800/60 to-purple-900/30 rounded-3xl border border-slate-700/50 overflow-hidden mb-8">
+      <div className="animate-fade-in relative bg-gradient-to-br from-indigo-900/40 via-slate-800/60 to-purple-900/30 rounded-3xl border border-slate-700/50 overflow-hidden mb-0">
         <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl" />
 
@@ -249,7 +249,7 @@ export default function ProfileDisplay({
       </div>
 
       {/* Grid Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
         {/* Basic Details */}
         <Section icon={User} title="Basic Details" delay={100}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
