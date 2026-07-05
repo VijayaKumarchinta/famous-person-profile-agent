@@ -21,6 +21,19 @@
 
 ---
 
+## 📸 Screenshots
+
+### Landing Page
+![Landing Page](./public/screenshots/Landing_page.jpeg)
+
+### Generated Profile View
+![Generated Profile View](./public/screenshots/Generated_frontend_view.jpeg)
+
+### PDF Report Export
+![PDF Report Export](./public/screenshots/Pdf_report.png)
+
+---
+
 ## 🚀 Quick Start
 
 ### Prerequisites
