@@ -21,16 +21,16 @@
 
 ---
 
-## 📸 Screenshots
+## 📄 PDF Exports
 
 ### Landing Page
-![Landing Page](./public/screenshots/Landing_page.jpeg)
+[View Landing Page PDF](./public/screenshots/Landing_page.pdf)
 
 ### Generated Profile View
-![Generated Profile View](./public/screenshots/Generated_frontend_view.jpeg)
+[View Generated Profile PDF](./public/screenshots/Report_generation.pdf)
 
 ### PDF Report Export
-![PDF Report Export](./public/screenshots/Pdf_report.png)
+[View PDF Report Export](./public/screenshots/Satya_Nadella_Profile.pdf)
 
 ---
 
