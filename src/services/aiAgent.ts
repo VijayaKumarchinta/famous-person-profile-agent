@@ -45,9 +45,9 @@ export async function generateProfileWithGemini(name: string, context: string, a
   }
 
   const genAI = new GoogleGenerativeAI(apiKey);
-  
+
   // Use gemini-1.5-flash with Google Search Grounding for fast, internet-aware answers
-  const model = genAI.getGenerativeModel({ 
+  const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
     systemInstruction: SYSTEM_PROMPT,
     tools: [
@@ -63,11 +63,11 @@ export async function generateProfileWithGemini(name: string, context: string, a
   try {
     const result = await model.generateContent(prompt);
     const responseText = result.response.text();
-    
+
     // Extract JSON from response (handling potential markdown formatting)
     const jsonMatch = responseText.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
     const jsonString = jsonMatch ? jsonMatch[1] : responseText;
-    
+
     const profile = JSON.parse(jsonString) as ProfileData;
     profile.generatedAt = new Date().toISOString();
     return profile;
