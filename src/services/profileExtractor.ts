@@ -23,22 +23,23 @@ export function extractProfileFromWikipedia(
   // Basic Details
   const fullName = cleanText(infobox.birth_name || infobox.name || infobox.full_name || name);
   const nationality = cleanText(infobox.citizenship || infobox.nationality) || NOT_AVAILABLE;
-  const currentRole = cleanText(infobox.occupation || infobox.known_for || infobox.title || description) || NOT_AVAILABLE;
+  const currentRole = cleanText(infobox.title || infobox.occupation || description || infobox.known_for) || NOT_AVAILABLE;
   
   // Try to infer Industry from context or role if not explicitly set
   let industry = cleanText(infobox.industry || infobox.field);
   if (!industry) {
     const textToSearch = `${currentRole} ${fullText.substring(0, 500)}`;
     const industryKeywords = [
-      { pattern: /\b(software|tech|computer|digital|IT|internet|cloud|AI|artificial intelligence)\b/i, industry: "Technology" },
+      { pattern: /\b(software|tech|computer|computing|digital|IT|internet|cloud|AI|artificial intelligence|hardware|semiconductor|GPU|engineer)\b/i, industry: "Technology" },
       { pattern: /\b(bank|finance|invest|hedge fund|private equity|venture capital|trading)\b/i, industry: "Finance" },
       { pattern: /\b(health|medical|pharma|hospital|biotech|medicine)\b/i, industry: "Healthcare" },
       { pattern: /\b(film|movie|hollywood|bollywood|cinema|actor|actress|director|singer|music)\b/i, industry: "Entertainment" },
       { pattern: /\b(sport|athlete|player|football|soccer|basketball|cricket|tennis|golf)\b/i, industry: "Sports" },
-      { pattern: /\b(politic|government|senator|congress|parliament|minister|president|prime)\b/i, industry: "Politics" },
+      { pattern: /\b(politic|government|senator|congress|parliament|minister|prime)\b/i, industry: "Politics" },
       { pattern: /\b(media|news|journalist|broadcast|television|radio)\b/i, industry: "Media" },
       { pattern: /\b(retail|store|shop|e-commerce|consumer)\b/i, industry: "Retail" },
-      { pattern: /\b(space|aerospace|rocket|satellite|NASA)\b/i, industry: "Aerospace" },
+      { pattern: /\b(space|aerospace|rocket|satellite|NASA|SpaceX)\b/i, industry: "Aerospace" },
+      { pattern: /\b(car|automotive|vehicle|Tesla|electric)\b/i, industry: "Automotive" },
     ];
     for (const { pattern, industry: ind } of industryKeywords) {
       if (pattern.test(textToSearch)) {
@@ -140,7 +141,7 @@ export function extractProfileFromWikipedia(
   // Net Worth
   let netWorth = cleanText(infobox.net_worth || infobox.networth);
   if (!netWorth) {
-    const nwMatch = extract.match(/net\s*worth\s+[^.]*?(\$[\d,.]+\s*(?:billion|million|trillion))/i);
+    const nwMatch = extract.match(/net\s*worth\s+[^.]*?((?:US)?\$[\d,.]+\s*(?:billion|million|trillion))/i);
     if (nwMatch) netWorth = nwMatch[1];
   }
 
@@ -150,9 +151,11 @@ export function extractProfileFromWikipedia(
 
   // Interests
   const interests: string[] = [];
-  const interestsText = cleanText(infobox.known_for || infobox.notable_works);
+  const interestsText = cleanText(infobox.notable_works);
   if (interestsText) {
     interests.push(...interestsText.split(/,|\n/).map(i => i.trim()).filter(i => i.length > 0));
+  } else {
+    interests.push(NOT_AVAILABLE);
   }
   
   // Recent News (mocked from latest dates in text)

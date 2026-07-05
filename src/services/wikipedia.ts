@@ -35,7 +35,7 @@ function processDoc(doc: any): WikipediaData {
 
   // Fallback: wtf_wikipedia sometimes drops keys with complex list templates (like {{Indented plainlist}})
   // We'll manually parse the raw wikitext to recover critical fields if missing
-  const rawWikitext = doc.wikitext();
+  const rawWikitext = doc.infobox() && typeof doc.infobox().wikitext === 'function' ? doc.infobox().wikitext() : doc.wikitext().substring(0, 5000);
   const criticalKeys = ['alma_mater', 'education', 'net_worth', 'title', 'industry'];
   
   for (const key of criticalKeys) {
@@ -111,7 +111,7 @@ function processDoc(doc: any): WikipediaData {
   return {
     title: doc.title() || "",
     extract: extract,
-    description: cleanInfobox.occupation || cleanInfobox.known_for || "",
+    description: doc.description ? doc.description() : cleanInfobox.occupation || cleanInfobox.known_for || "",
     fullText: doc.text(),
     pageUrl: `https://en.wikipedia.org/wiki/${encodeURIComponent(doc.title() || "")}`,
     thumbnail,
