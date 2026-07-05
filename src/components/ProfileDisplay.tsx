@@ -32,11 +32,10 @@ function Toast({ message, type, onDone }: { message: string; type: "success" | "
 
   return (
     <div
-      className={`fixed top-6 right-6 z-50 flex items-center gap-3 px-5 py-3 rounded-xl shadow-2xl border animate-fade-in ${
-        type === "success"
+      className={`fixed top-6 right-6 z-50 flex items-center gap-3 px-5 py-3 rounded-xl shadow-2xl border animate-fade-in ${type === "success"
           ? "bg-emerald-950/90 border-emerald-700/50 text-emerald-300"
           : "bg-red-950/90 border-red-700/50 text-red-300"
-      }`}
+        }`}
     >
       {type === "success" ? <CheckCircle2 className="w-5 h-5 shrink-0" /> : <AlertCircle className="w-5 h-5 shrink-0" />}
       <span className="text-sm font-medium">{message}</span>
@@ -166,7 +165,7 @@ export default function ProfileDisplay({
       {toast && <Toast message={toast.message} type={toast.type} onDone={() => setToast(null)} />}
 
       {/* Header / Hero Card */}
-      <div className="animate-fade-in relative bg-gradient-to-br from-indigo-900/40 via-slate-800/60 to-purple-900/30 rounded-3xl border border-slate-700/50 overflow-hidden mb-0">
+      <div className="animate-fade-in relative bg-gradient-to-br from-indigo-900/40 via-slate-800/60 to-purple-900/30 rounded-3xl border border-slate-700/50 overflow-hidden mb-8">
         <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl" />
 
@@ -249,7 +248,7 @@ export default function ProfileDisplay({
       </div>
 
       {/* Grid Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Basic Details */}
         <Section icon={User} title="Basic Details" delay={100}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
@@ -351,11 +350,10 @@ export default function ProfileDisplay({
               <DollarSign className="w-6 h-6 text-emerald-400" />
             </div>
             <p
-              className={`text-lg font-semibold ${
-                profile.netWorth.toLowerCase().includes("not")
+              className={`text-lg font-semibold ${profile.netWorth.toLowerCase().includes("not")
                   ? "text-slate-500 italic text-base font-normal"
                   : "text-emerald-300"
-              }`}
+                }`}
             >
               {profile.netWorth}
             </p>
