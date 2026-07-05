@@ -73,23 +73,18 @@ Open **[http://localhost:5173](http://localhost:5173)** in your browser.
   </tr>
   <tr>
     <td align="center">3</td>
-    <td>(Optional) Enter Gemini API Key</td>
-    <td><code>AIza...</code> (Unlocks "Whole Internet" AI search)</td>
-  </tr>
-  <tr>
-    <td align="center">4</td>
     <td>Click <strong>Generate Profile</strong> or press <kbd>Enter</kbd> / <kbd>Ctrl</kbd>+<kbd>Enter</kbd></td>
     <td>—</td>
   </tr>
   <tr>
-    <td align="center">5</td>
+    <td align="center">4</td>
     <td>Export results — PDF report or JSON</td>
     <td>—</td>
   </tr>
 </table>
 
 > **Note:** If any information is not publicly available, the application clearly marks it rather than fabricating data.
-> **AI Agent Mode:** By providing a free Gemini API Key, the app seamlessly upgrades from Wikipedia heuristics to a full AI Agent using Google Search Grounding to scour the whole internet for information.
+> **AI Agent Mode (Optional):** To use the "Whole Internet" AI search, create a `.env` file in the root directory and add `VITE_GEMINI_API_KEY=your_free_key_here`. This seamlessly upgrades the app from Wikipedia heuristics to a full AI Agent using Google Search Grounding to scour the whole internet for information.
 
 ### Input Guide
 
