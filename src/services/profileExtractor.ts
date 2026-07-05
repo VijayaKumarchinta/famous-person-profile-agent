@@ -184,6 +184,7 @@ export function extractProfileFromWikipedia(
     recentNews: recentNews.length > 0 ? recentNews : [{ title: NOT_AVAILABLE, description: "No recent news found in public sources." }],
     references: [
       { title: `Wikipedia - ${wikiData.title}`, url: pageUrl },
+      ...(wikiData.references || [])
     ],
     photoUrl: thumbnail,
     generatedAt: new Date().toISOString(),

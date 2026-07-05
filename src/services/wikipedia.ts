@@ -79,6 +79,35 @@ function processDoc(doc: any): WikipediaData {
     ? sections[0].text() 
     : doc.text().substring(0, 2000);
 
+  // Extract references
+  let references: Array<{title: string, url: string}> = [];
+  try {
+    const rawRefs = doc.references();
+    if (rawRefs && Array.isArray(rawRefs)) {
+      // Map to JSON objects
+      const jsonRefs = rawRefs.map((r: any) => r.json ? r.json() : {});
+      
+      // Filter for valid URLs and titles
+      const validRefs = jsonRefs.filter((r: any) => r.url && r.url.startsWith('http') && (r.title || r.website || r.publisher));
+      
+      // Remove duplicates by URL
+      const uniqueUrls = new Set<string>();
+      
+      for (const r of validRefs) {
+        if (!uniqueUrls.has(r.url) && references.length < 10) {
+          uniqueUrls.add(r.url);
+          const title = r.title || r.website || r.publisher;
+          references.push({
+            title: title.length > 60 ? title.substring(0, 57) + '...' : title,
+            url: r.url
+          });
+        }
+      }
+    }
+  } catch (e) {
+    console.error("Failed to parse references", e);
+  }
+
   return {
     title: doc.title() || "",
     extract: extract,
@@ -87,5 +116,6 @@ function processDoc(doc: any): WikipediaData {
     pageUrl: `https://en.wikipedia.org/wiki/${encodeURIComponent(doc.title() || "")}`,
     thumbnail,
     infobox: cleanInfobox,
+    references,
   };
 }

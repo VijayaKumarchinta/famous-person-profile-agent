@@ -53,4 +53,5 @@ export interface WikipediaData {
   pageUrl: string;
   thumbnail?: string;
   infobox: Record<string, string>;
+  references?: Array<{ title: string; url: string }>;
 }
