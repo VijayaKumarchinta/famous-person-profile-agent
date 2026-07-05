@@ -20,7 +20,6 @@ import LoadingState from "./components/LoadingState";
 import { fetchWikipediaData } from "./services/wikipedia";
 import { extractProfileFromWikipedia } from "./services/profileExtractor";
 import { generateProfileWithGemini } from "./services/aiAgent";
-import { sampleProfile } from "./data/sampleProfile";
 import {
   loadProfiles,
   saveProfile,
@@ -158,11 +157,6 @@ export default function App() {
       setState("error");
     }
   }, [name, context]);
-
-  const handleLoadSample = useCallback(() => {
-    setProfile(sampleProfile);
-    setState("profile");
-  }, []);
 
   const handleLoadFromHistory = useCallback((stored: StoredProfile) => {
     setProfile(stored.profile);
@@ -400,26 +394,6 @@ export default function App() {
                 to generate
               </p>
 
-              {/* Divider */}
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-slate-700/50" />
-                </div>
-                <div className="relative flex justify-center">
-                  <span className="px-3 bg-slate-900/80 text-xs text-slate-500">
-                    or view example
-                  </span>
-                </div>
-              </div>
-
-              {/* Sample profile button */}
-              <button
-                onClick={handleLoadSample}
-                className="w-full py-3 bg-slate-800/50 hover:bg-slate-700/50 text-slate-300 font-medium rounded-xl border border-slate-700/50 hover:border-slate-600/50 transition-all flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <Database className="w-4 h-4 text-slate-400" />
-                View Sample Profile (Satya Nadella - CEO of Microsoft)
-              </button>
             </div>
           </div>
 
