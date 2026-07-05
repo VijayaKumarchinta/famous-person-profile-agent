@@ -4,7 +4,6 @@ import {
   Sparkles,
   AlertCircle,
   Zap,
-  Database,
   Brain,
   FileText,
   ChevronDown,
