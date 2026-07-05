@@ -15,7 +15,7 @@ function cleanText(text: string | undefined): string {
  */
 export function extractProfileFromWikipedia(
   name: string,
-  context: string,
+  _context: string,
   wikiData: WikipediaData
 ): ProfileData {
   const { extract, fullText, infobox, pageUrl, thumbnail, description } = wikiData;

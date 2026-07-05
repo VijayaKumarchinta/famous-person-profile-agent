@@ -52,7 +52,7 @@ export async function generateProfileWithGemini(name: string, context: string, a
     systemInstruction: SYSTEM_PROMPT,
     tools: [
       {
-        // Enable Google Search Grounding
+        // @ts-ignore: Google Search Grounding is available in the API but might be missing in this SDK version's types
         googleSearch: {}
       }
     ]
