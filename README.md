@@ -4,6 +4,7 @@
   <img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS 4" />
   <img src="https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white" alt="Vite 7" />
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
+  <img src="https://img.shields.io/github/actions/workflow/status/VijayaKumarchinta/famous-person-profile-agent/deploy.yml?branch=main&logo=github&label=Deploy" alt="CI/CD Status" />
 </p>
 
 <h1 align="center">AI-Powered Profile Builder</h1>
