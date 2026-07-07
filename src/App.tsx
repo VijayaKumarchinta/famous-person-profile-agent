@@ -296,7 +296,7 @@ export default function App() {
             <div className="p-6 md:p-8 space-y-5">
               {/* Name input */}
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">
+                <label htmlFor="person-name" className="block text-sm font-medium text-slate-300 mb-2">
                   Person's Name <span className="text-red-400">*</span>
                 </label>
                 <div className="relative">
@@ -325,7 +325,7 @@ export default function App() {
 
               {/* Context input - REQUIRED */}
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">
+                <label htmlFor="person-context" className="block text-sm font-medium text-slate-300 mb-2">
                   Context <span className="text-red-400">*</span>
                   <span className="ml-2 text-slate-500 font-normal text-xs">
                     (helps find the right person)
