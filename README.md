@@ -1,41 +1,55 @@
-<p align="center">
-  <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white" alt="React 19" />
-  <img src="https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white" alt="TypeScript 5.9" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS 4" />
-  <img src="https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white" alt="Vite 7" />
-  <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
-  <img src="https://img.shields.io/github/actions/workflow/status/VijayaKumarchinta/famous-person-profile-agent/deploy.yml?branch=main&logo=github&label=Deploy" alt="CI/CD Status" />
-</p>
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white&style=for-the-badge">
+    <img alt="React 19" src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white&style=for-the-badge">
+  </picture>
+  <br>
+  <h1>🤖 AI-Powered Profile Builder</h1>
+  <p><strong>Wikipedia Extraction · AI Agent Mode · PDF/JSON Exports</strong></p>
 
-<h1 align="center">AI-Powered Profile Builder</h1>
+  [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+  [![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+  [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+  
+  [![Deploy Status](https://img.shields.io/github/actions/workflow/status/VijayaKumarchinta/famous-person-profile-agent/deploy.yml?branch=main&style=for-the-badge&logo=github&label=Deploy)](https://github.com/VijayaKumarchinta/famous-person-profile-agent/actions)
+  [![Live Demo](https://img.shields.io/badge/LIVE_DEMO-8A2BE2?style=for-the-badge&logo=cloudflare&logoColor=white)](https://famous-person-profile-agent.pages.dev)
+  
+  <p>A web application that creates structured profiles of famous people using publicly available data — powered by Wikipedia extraction by default, with an optional upgrade to AI Agent mode via Gemini.</p>
 
-<p align="center">
-  A web application that creates structured profiles of famous people using publicly available data.<br />
-  <strong>Works via Wikipedia extraction by default, or seamlessly upgrades to a full AI Agent (Whole Internet Search) via a free Gemini API Key.</strong>
-</p>
+  <p><sub>Built for the <strong>AI-Powered Profile Builder Internship Assignment</strong></sub></p>
+</div>
 
-<p align="center">
-  Built for the <strong>AI-Powered Profile Builder Internship Assignment</strong>
-</p>
-
-<br />
+<br>
 
 ---
 
-## 📄 PDF Exports
+## 📋 Table of Contents
 
-### Landing Page
-[View Landing Page PDF](./public/screenshots/Landing_page.pdf)
+- [📄 PDF Examples](#-pdf-examples)
+- [🚀 Quick Start](#-quick-start)
+- [📖 How to Use](#-how-to-use)
+- [🏗️ Architecture](#️-architecture)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [🔒 Privacy](#-privacy)
+- [📝 License](#-license)
 
-### Generated Profile View
-[View Generated Profile PDF](./public/screenshots/Report_generation.pdf)
+---
 
-### PDF Report Export
-[View PDF Report Export](./public/screenshots/Satya_Nadella_Profile.pdf)
+## 📄 PDF Examples
+
+| Document | Link |
+|----------|------|
+| Landing Page | [View PDF](./public/screenshots/Landing_page.pdf) |
+| Generated Profile | [View PDF](./public/screenshots/Report_generation.pdf) |
+| Sample Report (Satya Nadella) | [View PDF](./public/screenshots/Satya_Nadella_Profile.pdf) |
 
 ---
 
 ## 🚀 Quick Start
+
+<details>
+<summary><strong>Click to expand setup instructions</strong></summary>
 
 ### Prerequisites
 
@@ -59,9 +73,11 @@ Open **[http://localhost:5173](http://localhost:5173)** in your browser.
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Start development server with hot reload |
-| `npm run build` | Create production build in `dist/` |
-| `npm run preview` | Preview the production build |
+| `npm run dev` | Development server with hot reload |
+| `npm run build` | Production build → `dist/` |
+| `npm run preview` | Preview production build |
+
+</details>
 
 ---
 
@@ -69,91 +85,44 @@ Open **[http://localhost:5173](http://localhost:5173)** in your browser.
 
 ### Step-by-Step Guide
 
-<table>
-  <tr>
-    <th>Step</th>
-    <th>Action</th>
-    <th>Example</th>
-  </tr>
-  <tr>
-    <td align="center">1</td>
-    <td>Enter the person's full name</td>
-    <td><code>Satya Nadella</code></td>
-  </tr>
-  <tr>
-    <td align="center">2</td>
-    <td>Provide context for accuracy</td>
-    <td><code>CEO of Microsoft</code></td>
-  </tr>
-  <tr>
-    <td align="center">3</td>
-    <td>Click <strong>Generate Profile</strong> or press <kbd>Enter</kbd> / <kbd>Ctrl</kbd>+<kbd>Enter</kbd></td>
-    <td>—</td>
-  </tr>
-  <tr>
-    <td align="center">4</td>
-    <td>Export results — PDF report or JSON</td>
-    <td>—</td>
-  </tr>
-</table>
+| Step | Action | Example |
+|:----:|--------|---------|
+| **1** | Enter the person's full name | `Satya Nadella` |
+| **2** | Provide context for accuracy | `CEO of Microsoft` |
+| **3** | Click **Generate Profile** | Press `Enter` / `Ctrl+Enter` |
+| **4** | Export results | PDF report or JSON |
 
-> **Note:** If any information is not publicly available, the application clearly marks it rather than fabricating data.
-> **AI Agent Mode (Optional):** To use the "Whole Internet" AI search, create a `.env` file in the root directory and add `VITE_GEMINI_API_KEY=your_free_key_here`. This seamlessly upgrades the app from Wikipedia heuristics to a full AI Agent using Google Search Grounding to scour the whole internet for information.
+> **💡 Tip:** If any information is not publicly available, the app marks it rather than fabricating data.
 
-### Input Guide
+<details>
+<summary><strong>AI Agent Mode (Optional)</strong></summary>
+
+To use the "Whole Internet" AI search, create a `.env` file:
+```
+VITE_GEMINI_API_KEY=your_free_key_here
+```
+This upgrades the app from Wikipedia heuristics to a full AI Agent using Google Search Grounding.
+
+</details>
+
+<details>
+<summary><strong>Input Guide</strong></summary>
 
 #### Name Field
-Enter the **full name** of a famous person. Use the most commonly known version of their name for best Wikipedia search results.
-
 | ✅ Good Inputs | ❌ Poor Inputs |
 |---------------|---------------|
 | `Satya Nadella` | `Satya` (too vague) |
 | `Elon Musk` | `CEO` (not a name) |
 | `Marie Curie` | `Microsoft guy` (not a name) |
-| `Cristiano Ronaldo` | `CR7` (nickname) |
 
 #### Context Field
-Context is **required** — it helps the search find the correct Wikipedia article, especially when multiple people share the same name. Be specific about who they are or what they're known for.
-
 | ✅ Good Context | Why It Helps |
 |----------------|-------------|
 | `CEO of Microsoft` | Distinguishes from other people named Satya Nadella |
-| `Tesla CEO` | Finds the right Elon Musk vs. other Elon Musks |
+| `Tesla CEO` | Finds the right Elon Musk |
 | `physicist Nobel Prize` | Narrows to the famous scientist |
-| `Indian independence leader` | Finds Mahatma Gandhi vs. other Gandhis |
 
-#### Why Context Matters
-
-Without context, the search might return the wrong person or a disambiguation page. For example:
-
-| Name | Without Context | With Context (`CEO of Microsoft`) |
-|------|----------------|-----------------------------------|
-| `Michael Jordan` | ⚠️ Could return the professor or the basketball player | ✅ Michael Jordan (basketball) — if context is "basketball player" |
-| `Satya Nadella` | ⚠️ May not prioritize the correct page | ✅ Satya Nadella (Microsoft CEO) |
-
-### Sample Profile
-
-Click **"View Sample Profile"** on the landing page to see a pre-generated profile for **Satya Nadella (CEO of Microsoft)**, which matches the assignment's example input exactly.
-
----
-
-## 📋 Generated Profile Sections
-
-| # | Section | Description |
-|:---:|---------|-------------|
-| 1 | **Executive Summary** | 2-3 sentence overview from Wikipedia |
-| 2 | **Full Name** | Extracted from infobox or article |
-| 3 | **Nationality** | Pattern matching from text |
-| 4 | **Current Role** | Extracted from infobox / Wikipedia |
-| 5 | **Industry** | Keyword-based detection |
-| 6 | **Current City / Country** | From infobox residence data |
-| 7 | **Biography** | Wikipedia article summary |
-| 8 | **Career Timeline** | Year-based event extraction |
-| 9 | **Education** | Infobox + text pattern matching |
-| 10 | **Interests** | Keyword and hobby detection |
-| 11 | **Net Worth** | Financial pattern extraction |
-| 12 | **Recent News** | Recent year mentions in article |
-| 13 | **References** | Source links (Wikipedia, etc.) |
+</details>
 
 ---
 
@@ -163,30 +132,21 @@ Click **"View Sample Profile"** on the landing page to see a pre-generated profi
 ┌──────────────────────────────────────────────────────────────┐
 │                 User Input (Name + Context)                   │
 └───────────────────────┬──────────────────────────────────────┘
-                        │
                         ▼
 ┌──────────────────────────────────────────────────────────────┐
 │                    Wikipedia Service                          │
-│                                                              │
 │  ┌──────────────┐   ┌──────────────┐   ┌────────────────┐   │
 │  │  OpenSearch  │ → │ REST Summary │ → │  Action API    │   │
-│  │  (Find Page) │   │  (Extract)   │   │  (Full Text)   │   │
 │  └──────────────┘   └──────────────┘   └────────────────┘   │
 │                                        ┌────────────────┐   │
 │                                        │  Infobox Parser│   │
 │                                        └────────────────┘   │
 └───────────────────────┬──────────────────────────────────────┘
-                        │
                         ▼
 ┌──────────────────────────────────────────────────────────────┐
 │                   Profile Extractor                           │
-│                                                              │
-│   Pattern Matching & Heuristics to extract structured data:  │
-│   • Career timeline    • Education        • Net worth        │
-│   • Interests          • Recent news      • Basic details    │
-│   • Biography          • References                           │
+│   Pattern Matching & Heuristics → structured data output     │
 └───────────────────────┬──────────────────────────────────────┘
-                        │
                         ▼
 ┌──────────────────────────────────────────────────────────────┐
 │              Profile Display + PDF/JSON Export                │
@@ -200,26 +160,27 @@ Click **"View Sample Profile"** on the landing page to see a pre-generated profi
 
 | Category | Technology | Purpose |
 |----------|-----------|---------|
-| **Frontend** | React 19 + TypeScript | UI framework and application logic |
-| **Styling** | Tailwind CSS 4 | Modern, responsive design |
-| **Build Tool** | Vite 7 | Fast development and optimized builds |
+| **Frontend** | React 19 + TypeScript | UI framework |
+| **Styling** | Tailwind CSS 4 | Modern responsive design |
+| **Build** | Vite 7 | Fast dev + optimized builds |
 | **Icons** | Lucide React | Consistent icon library |
-| **PDF Generation** | jsPDF | Client-side PDF creation (single A4 page) |
-| **Data Source** | Wikipedia API | Public information — no authentication required |
+| **PDF** | jsPDF | Client-side PDF generation |
+| **Data Source** | Wikipedia API | Public information |
+| **CI/CD** | GitHub Actions → Cloudflare Pages | Auto-deploy on push |
 
-> All tools are **free and open-source**. No paid APIs or AI services are used.
+> All tools are **free and open-source**. No paid APIs required.
 
 ---
 
-## 🔒 Data & Privacy
+## 🔒 Privacy
 
 | Feature | Detail |
 |---------|--------|
 | **Storage** | Browser localStorage (no server) |
-| **Data Retention** | Up to 10 profiles in history |
-| **Exports** | PDF and JSON — saved to your Downloads folder |
-| **Tracking** | None — no analytics, no data collection |
-| **API Keys** | Not required — uses public Wikipedia APIs only |
+| **Retention** | Up to 10 profiles in history |
+| **Exports** | PDF and JSON — saved to Downloads |
+| **Tracking** | None — no analytics or data collection |
+| **API Keys** | Not required — uses public Wikipedia APIs |
 
 ---
 
@@ -229,6 +190,10 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ---
 
-<p align="center">
-  Built for the <strong>AI-Powered Profile Builder Internship Assignment</strong>
-</p>
+<div align="center">
+  <sub>
+    Built by <a href="https://github.com/VijayaKumarchinta">Vijaya Kumar Chinta</a>
+    <br>
+    🏠 <a href="https://github.com/VijayaKumarchinta/portfolio">View my complete portfolio</a>
+  </sub>
+</div>
