@@ -1,7 +1,0 @@
-name = "vijayakumarchinta-profile-builder"
-compatibility_date = "2026-07-01"
-production_branch = "main"
-
-[build]
-command = "npm run build"
-output = "dist"
