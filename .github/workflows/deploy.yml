@@ -39,4 +39,4 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: "3.90.0"
-          command: pages deploy dist --project-name=famous-person-profile-agent
+          command: pages deploy dist --project-name=vijayakumarchinta-profile-builder

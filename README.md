@@ -13,7 +13,7 @@
   [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
   
   [![Deploy Status](https://img.shields.io/github/actions/workflow/status/VijayaKumarchinta/famous-person-profile-agent/deploy.yml?branch=main&style=for-the-badge&logo=github&label=Deploy)](https://github.com/VijayaKumarchinta/famous-person-profile-agent/actions)
-  [![Live Demo](https://img.shields.io/badge/LIVE_DEMO-8A2BE2?style=for-the-badge&logo=cloudflare&logoColor=white)](https://famous-person-profile-agent.pages.dev)
+  [![Live Demo](https://img.shields.io/badge/LIVE_DEMO-8A2BE2?style=for-the-badge&logo=cloudflare&logoColor=white)](https://vijayakumarchinta-profile-builder.pages.dev)
   
   <p>A web application that creates structured profiles of famous people using publicly available data — powered by Wikipedia extraction by default, with an optional upgrade to AI Agent mode via Gemini.</p>
 
